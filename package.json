@@ -17,7 +17,7 @@
     "socket.io-file-client": "^2.0.13"
   },
   "scripts": {
-    "start": "node index"
+    "start": "npm install | node index.js"
   },
   "author": "Damien Arrachequesne",
   "license": "MIT"
