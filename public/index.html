@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Socket.IO</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="./node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <ul class="pages">
+    <li class="container-fluid chat page">
+      <div class="drawing">
+        <canvas class="whiteboard"></canvas>
+        <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Opcje</button>
+          <div id="myDropdown" class="dropdown-content">
+            <div class="info">
+                Czerwony: <input type="range" class="red" max="255" value="0"><br>
+                Zielony: <input type="range" class="green" max="255" value="0"><br>
+                Niebieski: <input type="range" class="blue" max="255" value="0"><br>
+              <p class="text-center">Informacje o pokoju:</p>
+              <p class="idRoom">Id pokoju: BRAK</p>
+              <p class="password">Hasło: </p>
+              <p class="numUsers">Osoby w pokoju: (1)</p>
+              <ul class="users"></ul>
+            </div>
+            <form id="form">
+              <p class="text-center">Tło:</p>
+              <p><label class="btn btn-primary btn-block">Wybierz tło<input type="file" id="file" hidden/></label></p>
+              <p><label class="btn btn-success btn-block">Potwierdź<input type="submit" hidden/></label></p>
+            </form>
+            <button class="btn btn-primary btn-block" id="chgPassword">Zmień hasło</button>
+            <input type="password" id="newPassword"/>
+            <button class="btn btn-success btn-block" id="cnfNewPassword">Zatwierdź</button>
+            <button class="btn btn-danger btn-block disconnect">Wyjdź z pokoju</button>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="login page">
+        <div class="form">
+          <h3 class="title">Podaj swój nick</h3>
+          <input class="usernameInput" type="text" maxlength="14"/>
+          <h3 class="title">Wybór pokoju</h3>
+          <div class="row justify-content-md-center">
+            <div class="col-md-3">
+            </br></br></br><button class="btn newroom">Stwórz nowy pokój</button>
+            </div>
+            <div class="col-md-3">
+              <h3 class="title">Podaj id pokoju</h3>
+              <input class="roomId" type="text" maxlength="14"/><br><br>
+              <h3 class="title">Podaj hasło</h3>
+              <input class="roomPassword" type="password"/><br><br>
+              <button class="btn join">Dołącz do istniejącego</button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  <script src="./socket.io/socket.io.js"></script>
+  <script src="./node_modules/socket.io-file-client/socket.io-file-client.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  </script>
+
+</body>
+</html>
